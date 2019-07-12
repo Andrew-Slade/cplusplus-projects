@@ -1,0 +1,46 @@
+Programming Project #3
+150 C++ Programming I
+
+    Your program name MUST include your name and the assignment number. Acceptable examples are : JohnS1 or jsmith1
+    Place the source file in the drop box in the Desire2Learn
+    All assignments must contain the following comments at the top of your source file
+    //your name
+    //which assignment or lab
+
+Programming Project 25 points
+
+For this assignment you will use the code you wrote from a prior lab. Be sure to use any corrections that were noted when the assignment was graded and correct them. If your project was not working as required fix the code so that it does. Then start with the following tasks. The assignment will break the code into functions which will now now pass and return values between themselves.
+
+From lab 2 copy the section of code that calculates the velocity of a brick dropped from a helocopter. Here are the original instructions.
+
+In this section you will practice more calculations using a math library function and using named constants by calculating the time it will take a brick to fall from a helicopter when the height of the helicopter is know along with the terminal velocity. You will also use field widths to format your output.
+
+    Create a constant the following constant:
+    GRAVITY = 9.80665
+    and variables for time, height and velocity.
+    get the height in meters for the helicopter from the user.
+    calculate the time it takes for the brick to fall. The formula is:
+    time = square root( 2 times the height / gravity)
+    now calculate the terminal velocity of the brick. The formula is:
+    velocity = gravity times the time
+    output the height, time and terminal velocity. Label your output, for example:
+    Helicopter height (meters): 35
+    Time (seconds): 2.7
+    Terminal velocity (m/s): 26.2
+
+Now look at your output.
+
+Set your output to have 1 decimal to the right of the decimal point.
+
+To align everything neatly in fields. Each label is in a field and each number is in a field. Text is usually left aligned in the field and numbers are right aligned in the field. To determine how many characters wide the label field should be count the number of characters. "Terminal velocity" contains 24 characters. "Helicopter height (meters):" contains 27 characters including the space and the colon. You need padding so add 3 or 4 extra spaces.
+
+Now add a field for the number. Numbers should have their decimal points aligned so use right to change the alignment. Determine the maximum number of characters and set your field width accordingly.
+
+Helicopter height (meters):    35.0000
+Time (seconds):                 2.6717
+Terminal velocity (m/s):       26.2005
+
+Follow the rule that says a function performs one task. This means that if it does a calculation it does just one calculation. If it gets input it only gets input. Reports are done in their own function. main() manages all the variables that are use by more than one functions and calls on functions as required to complete the solution.
+Program Requirements:
+
+All submissions must use prototypes and local variables only.  Constants may be local or global. The program must also use structured programming. This means that there can be only one return statement per function. Any assignments submitted with global variables or without prototypes will be graded as 0 points. Any function with more than one return will be deducted 5 points per return. Indents and naming conventions must be followed or points will be deducted. See the style and form guideline in contents.

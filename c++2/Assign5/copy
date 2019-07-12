@@ -1,0 +1,279 @@
+/************************************************
+
+CSCI-241 -Assignment 5- Spring 2017
+
+Programmer: Andrew Slade
+Z-ID: z1818810
+Section: 4
+TA: Dinesh Sandadi
+Date Due: 03/28/2017
+
+Purpose:Contains methods for NIUString class and
+standalone functions. These manipulate data in a 
+method similar to the standard string class. 
+*************************************************/
+
+#include "NIUString.h"
+#include <iostream>
+#include <cstring>
+using std::strlen;
+using std::cout;
+using std::ostream;
+
+
+NIUString::NIUString()
+  {
+    sized = 0;
+    capacityd = 0;
+    stringPointer = nullptr; 
+  }
+
+NIUString::NIUString(const char* other)
+  {
+    sized = strlen(other);
+    capacityd = sized;
+ 
+    if(capacityd == 0)
+      {
+        stringPointer = nullptr;
+      }
+    else
+      {
+        stringPointer = new char[capacityd];  
+        for(size_t c = 0; c < capacityd; c++)
+          {
+            stringPointer[c] = other[c];
+          }
+      }
+  }
+
+NIUString::NIUString(const NIUString& other)
+  {  
+    capacityd = other.capacityd;
+    sized = other.sized;
+    if(capacityd == 0)
+      {
+        stringPointer = nullptr;
+      }
+    else
+      {
+        stringPointer = new char[capacityd];
+        for(size_t t = 0; t < capacityd; t++)
+          {
+            stringPointer[t] = other[t];
+          }
+      }
+  }
+ 
+NIUString::~NIUString()
+  {
+    clear();
+  }
+
+void NIUString::reserve(size_t n)
+  {
+    if(n < sized || n == capacityd)
+      {
+        return;
+      }
+    else
+      {
+        capacityd = n;
+        char* temp;
+        if(capacityd == 0)
+          {
+            stringPointer = nullptr;
+          }
+        else
+          {
+            temp = new char[capacityd];
+            for(size_t l = 0; l < capacityd; l++)
+              {
+                temp[l] = stringPointer[l];  
+              }
+            delete[] stringPointer;
+            stringPointer = temp;
+          }
+      } 
+  }
+
+bool NIUString::operator==(const NIUString& rhs) const 
+  {
+    bool booly;
+    int county = 0;
+
+    if(sized == rhs.sized)
+      {
+        for(size_t q = 0; q < rhs.capacityd; q++)
+          { 
+            if(stringPointer[q] == rhs.stringPointer[q])
+              {
+                booly = true;
+              }
+            else
+              {
+                booly = false;
+                county++;
+              }
+          }
+       if(county > 0)
+         {
+           booly = false;
+         }
+      }
+    else
+      {
+        booly = false;
+      }
+     
+   
+   return booly;
+  }
+
+bool NIUString::operator==(const char* rhs) const
+  { 
+    bool bools;
+    int counter = 0;
+
+   for(size_t d = 0; d < strlen(rhs); d++)
+      { 
+         if(stringPointer[d] == rhs[d])
+           {
+             bools = true;
+           }
+         else
+           {
+             counter++;
+           }
+        if(counter > 0)
+          {
+            bools = false;
+          }
+      }     
+   
+   return bools; 
+  }
+
+NIUString& NIUString::operator=(const NIUString& other)
+  { 
+   bool boolo = false;
+
+   if(this == &other)
+     {
+       boolo = true;
+     }
+   else if(boolo == false)
+     {
+       delete[] stringPointer;
+       sized = other.sized;
+       capacityd = other.capacityd;
+       if(other.capacityd == 0)
+         {
+           stringPointer = nullptr;
+         }    
+       else
+         {
+           stringPointer = new char[capacityd];
+           for(size_t zz = 0; zz < capacityd; zz++)
+             {
+               stringPointer[zz] = other.stringPointer[zz];
+             }
+         }
+     }
+   return *this;
+  }
+ 
+NIUString& NIUString::operator=(const char* other)
+  { 
+  
+     delete[] stringPointer;
+     sized = strlen(other);
+     capacityd = sized;
+     if(strlen(other)== 0)
+       {
+         stringPointer = nullptr;
+       }    
+     else
+       {
+         stringPointer = new char[capacityd];
+         for(size_t zz = 0; zz < capacityd; zz++)
+            {
+              stringPointer[zz] = other[zz];
+            }
+       }
+   return *this;
+  }
+
+int NIUString::capacity() const
+  {
+    return capacityd;
+  }
+
+int NIUString::size() const
+  {
+    return sized;
+  }
+
+bool NIUString::empty() const
+  { 
+    bool booled;
+
+    if(sized == 0)
+      { 
+        booled = true;
+      }
+    else
+      {
+        booled = false;
+      }
+
+   return booled;
+  }
+
+void NIUString::clear()
+  { 
+    sized = 0;
+    capacityd = 0;
+    delete[] stringPointer; 
+    stringPointer = nullptr;
+
+   return;
+  }
+
+const char& NIUString::operator[](size_t pos) const
+  {
+    return stringPointer[pos];
+  }
+
+ostream& operator<<(ostream& lhs, const NIUString& rhs)
+  {
+    for(size_t i = 0; i < rhs.sized; i++)
+      {
+        cout << rhs.stringPointer[i];
+      }
+   return lhs;
+  }
+
+bool operator==(const char* lhs, const NIUString& rhs)
+  {
+    bool boold;
+    int count = 0;
+ 
+    for(size_t a = 0; a < strlen(lhs); a++)
+      { 
+         if(rhs.stringPointer[a] == lhs[a])
+           {
+             boold = true;
+           }
+         else
+           {
+             count++;
+           }
+        if(count > 0)
+          {
+            boold = false;
+          }
+      }   
+   cout << count; 
+   return boold; 
+  }

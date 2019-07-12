@@ -1,0 +1,63 @@
+
+Namespaces:
+
+------------------
+namespaces are libraries.
+
+reference used to access namespaces is using namespace <namespace>;
+this is called using a directive
+
+cout is a class.
+
+using can also reference multiple objects:
+
+using std::cout;
+using std::cin; these are called declarations
+
+no more using namespace std; 
+must use declarations;
+
+-------------------------------
+
+.cc is standard format for c++ files. .cpp may not always be accepted
+
+------
+
+std::hex and std::oct
+allow for hexidecimal and octal values.
+
+----------
+
+std::showbase and std::noshowbase enable and disable the bases in octal and hexidecimal(0/0x)
+ 
+----------
+
+to print out hexidecimal in upercase: std::uppercase;
+
+-- 
+point outputs are done with std::scientific, std::fixed
+
+--
+setprecision allows setting of number of decimal places shown
+
+--
+std::showpoint and std::noshowpoint modify trailing zeros (9.010000)
+
+--
+characters take up 1byte
+ integers take up 4 
+floats take up 4 
+long int takes up 8 bytes 
+
+doubles take up 8 bytes
+ 
+long doubles use up 16 bytes
+
+----
+
+Computer memory consists of bytes
+adress of byte is a hexidecimal value
+
+----
+USE VIM NOT VI.
+ *CTRL-N gives autocomplete 

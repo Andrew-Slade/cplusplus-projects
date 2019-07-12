@@ -1,0 +1,3 @@
+﻿  Class_Example_Week_14.cpp
+c:\users\aslad\desktop\cis 150 to transfer\_classexamples\class_example_week_14\class_example_week_14\class_example_week_14.cpp(59): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Class_Example_Week_14.vcxproj -> C:\Users\aslad\Desktop\CIS 150 to transfer\_ClassExamples\Class_Example_Week_14\Debug\Class_Example_Week_14.exe

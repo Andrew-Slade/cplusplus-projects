@@ -1,0 +1,108 @@
+Program Style Standards for CIS 150
+
+The following coding style must be followed for this class. Please not how points will be deducted for the various infractions.
+
+Global variable and prototype rules will be enforced by giving a score of 0 to any program that fails to follow the rules. 
+
+Other conventions will receive a warning on the first few assignments. After the first several assignments points will be deducted for not following the conventions. Point deductions will increase as the semester progresses. This means you may lose 1 point on assignment 3, 2 points on assignment 4, 3 points on assignment 5 for not following the conventions set out below.
+
+Each program will comments at the top of the page that include
+
+    Your name.
+    The course
+    The due date
+    The assignment description and number
+
+For example
+
+//Susan Grever
+//CIS 150 5001
+//1/28/09
+//Programming project#1
+Identifiers
+
+    All identifiers should be descriptive. If you abbreviate, it should be a recognizable abbreviation
+    For example: numOfItems  or numItems not ni.
+    Names should start with a small letter. Identifiers that consist of several words should use camel casing where the first letter of each succeeding word in the identifier is capitalized.
+    For example: grossSales
+    You may also use underscores to seperate words in an identifier.
+    For exampe: gross_sales
+    Utility variables such as loop counters or flags that do not have meaning within the program scope may be single letters or abbreviations.
+
+Variables
+
+    All variables should be declared in an orderly manner at the start of the function. Utility variables (counters, flags, etc.) may be declared in the program where they are used.
+    Keep the types grouped together in one declaration. If the list becomes long, start a new line to allow all variables to be read without scrolling.
+    The C++ does not initialize local variables to 0 as this is not part of the C++ standard. Be sure to initialize all variables before use either by user input, reading a file or giving the variable an initial value in your code. Visual Studio checks for this. Dev C++ and Quincy do not. Points will be deducted for failing to give a variable a value prior to use.
+    Do not put multiple statements on one line.
+    For example use:
+
+    int numOfStudents, numOfScores;
+    double test1, test2, test3, testAvg;
+    String strTest;
+     
+    not
+     	
+    int numOfStudents, numOfScores; double test1, test2, test3, testAvg; String strTest;
+     	
+
+    You may not use ANY global variables in your programs, all variables must be local variables. Any assignments submitted that use global variables will be given a score of 0.
+
+Constants
+
+    Constant should be declared in ALL capital letters. Use underscores to separate words in a constant. For example:
+
+    const int SIZE = 20;
+    const char LABEL[] = "First Part";
+    const double TAX_RATE = .0675;
+
+Functions
+
+    All functions should start with a small letter. Each successive word in the identifier should be capitalized. The name should help identify that functions perform actions.
+    For example: getSalesInfo
+    Function names should include verbs that help describe what they do. For instance use getInput instead of input.
+    Each function should be preceded by a short comment that describes the action performed by the function.
+    All programs that use functions must use prototypes. Any assignments submitted that do not use prototypes will be given a score of 0.
+     Function definitions must follow the function main() definition. Points will be deducted for function definitions that procede main().
+
+Indentation and curly braces
+
+    Opening curly braces should be placed below the first letter of the if, switch, while, for or function header. The closing curley brace must be aligned with the opening curley brace.
+    For example:
+
+    if(x < 20)
+    {
+        statements here.......
+    }
+
+    or
+    int main()
+    {
+       ....
+    		
+       return 0;
+    }
+        
+
+    Opening curley braces placed on the same line as the if, switch, while, for or function header are acceptable.
+    An exception to the above rule is the do while statement. The opening curley brace should be placed directly after the do and the closing curley brace should immediately procede the while.
+    For example:
+
+    do{
+       statements here ...
+    }while(x < 10);
+        
+
+    all statements inside a set of curly braces should be indented at least 3 spaces from the curly braces. You may use the tab in notepad or another text editor if you wish.
+    decision and loop structures with one statement and no curly braces should still be indented as if the curly braces were present.
+
+White space
+
+    a blank space between operators and operands is optional.
+    an extra line between structures (decision or loop blocks) helps delineate the structure when reading code.
+    do not double space code.
+    a blank line between functions is a good idea to separate the blocks of code.
+
+Comments
+
+Required comments are mentioned above. You may place other comments anywhere in the program that you wish.

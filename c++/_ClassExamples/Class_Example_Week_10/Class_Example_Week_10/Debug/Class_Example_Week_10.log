@@ -1,0 +1,4 @@
+﻿  searchArray.cpp
+c:\users\drew\desktop\c++programs\class_example_week_10\class_example_week_10\searcharray.cpp(8): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\drew\desktop\c++programs\class_example_week_10\class_example_week_10\searcharray.cpp(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Class_Example_Week_10.vcxproj -> c:\users\drew\Desktop\c++programs\Class_Example_Week_10\Debug\Class_Example_Week_10.exe

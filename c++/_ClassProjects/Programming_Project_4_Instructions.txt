@@ -1,0 +1,34 @@
+Programming Project #4
+150 C++ Programming I
+
+    Your program name MUST include your name and the assignment number. Acceptable examples are : JohnS1 or jsmith1
+    Place the source file in the assignment drop box in the D2L course shell. Print out the source code and hand it in in class.
+    All assignments must contain the following comments at the top of your source file
+    //your name
+    //which assignment or lab
+
+Programming Project 25 points
+
+For this assignment you will write a program that will use an array to hold 20 random integer numbers. The program will then add all the numbers in the array, find the average value in the array and output the array, the average and the total to the user.
+Program Requirements:
+
+    You must use prototypes.
+    You may not have any global variables.
+    Use a constant to size the array.
+    Define the array in main and pass it to the required functions. Remember you are passing by reference.
+    One function will load the 20 random integer numbers into the array. The random numbers should range from 0 to 100. The function has 2 parameters, the array and the size of the array and returns nothing.
+    One function will add all the values in the array and returns the total. The function has 2 parameters, the array and the size of the array and returns the total. The array should be passed as a constant to prevent changes to the content.
+    One function that will calculate the average. The function receives the total from the previous function and the constant integer which is the size of the array. Be sure your average maintains any decimal portion.
+    One function will output all the values in the array in four rows with 5 columns per row. The function will also output the average and the total. The function has 3 parameters, the array, the total and the average. The function returns nothing.
+
+Be aware that you may lose points for not following the conventions of naming variables, indenting, and placement of {}.
+Points
+
+    2 points - defining and using a constant to size the array.
+    5 points - defining the array in main and correctly calling the following functions.
+    5 points - for the function that loads the array with random numbers and using both rand() and srand() correctly.
+    4 points - for the function that adds all the values in the array and returns the total.
+    4 points - for the function that calculates the average and returns it.
+    5 points - for outputting all the values and the total using setw() to set column width and using 4 rows with 5 numbers each.
+
+Be aware that you may lose points for not following the conventions of naming variables, indenting, and placement of {}.

@@ -1,0 +1,3 @@
+﻿  Source.cpp
+c:\users\aslad\desktop\parameter_argument_prototype_test\parameter_argument_prototype_test\source.cpp(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Parameter_argument_prototype_test.vcxproj -> C:\Users\aslad\Desktop\Parameter_argument_prototype_test\Debug\Parameter_argument_prototype_test.exe

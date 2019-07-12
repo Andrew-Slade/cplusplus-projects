@@ -1,0 +1,211 @@
+Programming Project #5
+150 C++ Programming I
+
+Please be sure to do the following.
+
+    Your source file (the .cpp file) name MUST include your name and the assignment number. Acceptable examples are: JohnS1.cpp or jsmith1.cpp
+    Print out the source code and place it on the instructor's desk.
+    Place the source file, this is the file with the .cpp extension in the assignment drop box in the D2L course shell
+    Print out the source code and hand it in at the beginning of class
+    All assignments must contain the following comments at the top of your source file
+    //your name
+    //which assignment or lab
+
+Programming Project 25 points
+
+For this assignment you will use an array, a structure and files. Your program will open a file, read in data from the file and output a report to the screen. The structure to hold the data is an element. The members are:
+
+    the element name, a character array with 22 characters,
+    the symbol, a character array with 4 characters,
+    the element number, a character array with 4 characters,
+    the melting point, a character array with 12 characters, and
+    the boiling point, a character array with 8 characters.
+
+The above dimensions include the terminating character. It is VERY important that you define you structure exactly as given above since that is how the file was written.
+
+For sequential access download the file elementsAssign.txt from the dropbox. Each piece of data is stored on one line. The element name includes spaces so you will need to use getline() to read them in. Hint: All the members are character arrays so you can use getline() for all the reads. They are all character arrays since some of the melting and boiling points are "unknown". There are 118 records in the file.
+
+Write a function that will read the sequential access file. The function has two parameter, the array of your struct data type and the size of the array. Open the sequential access file provided and read the records into the array of elements (the first parameter). Close the file and return to main. If the file doesn't open output a message to the user, hold the screen open and end the program.
+
+Write a function that will output the array in the form of a chart. Use the size of the character arrays to help set your field width. Text, the name and symbol, are left aligned so you will need to set alignment to left. The numbers should be right aligned. See the output below. Be sure to output a header to name the columns.
+
+When the first two functions are working, write a function to write the array to a binary file. Pass the array to the function, open a new file for binary access with the extension .ran, write all the data in the array to the file and close the file.
+
+Write another function to read the binary file into an array. Use the name of the file that you created above, open the file for binary access, read all the records into a new local array of element structures. In the function call your function that outputs an array in a chart format.
+
+Now we'll work on making the program more user friendly. In main call the function to read the sequential access file. Then call a function that will display the following menu:
+
+1. Output element chart
+2. Write random file
+3. Read random file
+4. End program
+
+The function will get the user's choice and returns it as an integer value to main. Function main will use a decision structure to call the appropriate option. In the decision structure check that the user has created the random file before it calls the function to read the binary file. If the user hasn't selected to write the random file output a message that they need to choose 2 before selecting option 3.
+
+Use a loop so that the user can make multiple selections. The call to the function that reads the sequential access file is not in the loop.
+
+Hints:
+
+    Allow substance names to have more than one word. This means you need to use getline(). If you choose to use the extraction operator don't forget ignore() before the next getline().
+    use a boolean variable which can be set to true when the user selects to write the random access file.
+
+Name 	Symbol 	
+Number
+	
+Melting Point
+	
+Boiling Point
+Actinium 	Ac 	
+89
+	
+1922
+	
+5788
+Aluminum (Aluminium) 	Al 	
+13
+	
+1220.581
+	
+4566
+Americium 	Am 	
+95
+	
+2149
+	
+3652
+Antimony (Stibium) 	Sb 	
+51
+	
+1167.13
+	
+2889
+Argon 	Ar 	
+18
+	
+-308.83
+	
+-302.53
+Arsenic 	As 	
+33
+	
+1503
+	
+1137
+Astatine 	At 	
+85
+	
+576
+	
+639
+Barium 	Ba 	
+56
+	
+1341
+	
+3447
+Berkelium 	Bk 	
+97
+	
+1922
+	
+Unknown
+Beryllium 	Be 	
+4
+	
+2349
+	
+4480
+Bismuth 	Bi 	
+83
+	
+520.52
+	
+2847
+Bohrium 	Bh 	
+107
+	
+Unknown
+	
+Unknown
+Boron 	B 	
+5
+	
+3767
+	
+7232
+Bromine 	Br 	
+35
+	
+19.0
+	
+137.8
+Cadmium 	Cd 	
+48
+	
+609.93
+	
+1413
+Calcium 	Ca 	
+20
+	
+1548
+	
+2703
+Californium 	Cf 	
+98
+	
+1652
+	
+Unknown
+Carbon (Graphite) 	C 	
+6
+	
+6422
+	
+6917
+Cerium 	Ce 	
+58
+	
+1468
+	
+6195
+Cesium (Caesium) 	Cs 	
+55
+	
+83.19
+	
+1240
+Chlorine 	Cl 	
+17
+	
+-150.7
+	
+-29.27
+Chromium 	Cr 	
+24
+	
+3465
+	
+4840
+Cobalt 	Co 	
+27
+	
+2723
+	
+5301
+Copernicium 	Cn 	
+112
+	
+Unknown
+	
+Unknown
+rest of elements ... 	  	  	  	 
+
+Points
+
+    5 points - opening processing and closing files
+    5 points - using a structure in your processes
+    3 points - using decision and repetition structures as required
+    4 points - defining and processing the array
+    5 points - writing and calling the functions
+    3 points - formatting output as required.

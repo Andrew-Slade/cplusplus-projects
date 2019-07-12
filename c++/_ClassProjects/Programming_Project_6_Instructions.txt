@@ -1,0 +1,87 @@
+Programming Project #6
+150 C++ Programming I
+
+Please be sure to do the following.
+
+    Your program file name MUST include your name and the assignment number. Acceptable examples are: JohnS1.cpp or jsmith1.cpp
+    Place all 3 files, the two .cpp files and the .h file in the assignment drop box in the D2L course shell
+    All assignments must contain the following comments at the top of your file
+    //your name
+    //which assignment or lab
+
+Programming Project 30 points
+
+For this assignment you will create a class and then use the class in a program.
+
+Your class will be class Tank. The following are the members for class Tank
+
+1. 3 member variables that should be private:
+
+    id, an integer
+    speed, a float
+    ammo, an integer
+
+Note: functions and constructors should have their prototypes in the class namespace with there definitions outside the namespace unless otherwise noted.
+
+2. Mutators or set functions
+
+    setId() has one parameter, an integer. Validate that the parameter is 0 or greater and less than or equal to 50. If it is, set member id to the parameter, otherwise throw an exception with an appropriate message. Do not output an error message!
+    setSpeed() has one parameter, a float. Validate that the parameter is 0 or greater and less than or equal to 60. If it is, set speed to the parameter, throw and exception with an appropriate message. Do not output an error message!
+    setAmmo() has one parameter, an integer. Validate that the value is 0 or greater and less than or equal to 40. If it is, set ammo to the parameter, otherwise throw and exception with an appropriate message. Do not output an error message!
+
+3. Accessor or get functions, these function may be in line if you wish.
+
+    getId(), returns the integer id
+    getSpeed(), returns the float speed
+    getAmmo(), returns the integer ammo
+
+4. Write a default constructor for the class. Use the following values to set the variables
+
+    id to 0
+    speed to 0
+    ammo to 0
+
+5. Write a constructor that will have 3 parameters, an integer for the id, a float for the speed and an integer for ammo. Call member functions setID(), setSpeed(), and setAmmo() using the constructor's parameter as the arguments for the calls.
+
+6. increaseSpeed(), has no parameters, when called it adds 5 to member speed as long as the new speed will not exceed 60. You may return member variable speed if you wish.
+
+7. decreaseSpeed(), has no parameters, when called it subtracts 5 from member speed as long as the new speed will not be less than 0. You may return member variable speed if you wish.
+
+8. fire(), subtracts 1 from member ammo as long as ammo is not less than 0. You may return member variable ammo if you wish.
+
+9. reload(), adds 5 to the member ammo as long as ammo is not more than 40. You may return member variable ammo if you wish.
+
+Now that the hard work of writing the class is done, have fun.
+
+Write a function that will output the current values for one Tank object. The function will output current values of members id, speed and ammo by calling the get member functions. The function returns nothing and has one parameter of type Tank. This is not a member function.
+
+In main you will need the two integer and a float variables to use to temporarily hold values entered by a user to set the members of a Tank object.
+
+in a try block:
+
+1. Write the code to have the user enter the required values.
+
+2. Create a Tank object with the default constructor. Use the values the user entered and the set member functions to set the values of id, speed and ammo for this object.
+
+3. Get a second set of values from the user and use the parameterized constructor for a second Tank object.
+
+4. Call each of the member functions, increaseSpeed(), decreaseSpeed(), fire() and reload() on both objects. Call the output function as needed to show the starting and ending value changes as the results of calling the other functions.
+
+Points
+
+    Defining the class. 10 points
+        defining the class including the two constructors.
+        writing the class function member definitions, only the get functions may be in line.
+        throwing an exception if a member will be set to an invalid value.
+    Writing the main line. 10 points
+        create 2 integer and float variables for the user to enter values for id, speed and ammo and get the values from the user
+        use the default constructor
+        call the set functions for id, speed and ammo and send the values the user entered
+        get values and use the parameterized constructor.
+        write a function that will output the id, speed and amount of ammo for one tank object using the get member functions.
+        call the increase, decrease and fire functions on at least one of your tank objects to show that the functions work.
+    Breaking the file into 3 separate files. 5 points
+        Using the required include statements
+        Using the if not define preprocessor directive.
+
+Be aware that you may lose points for not following the conventions of naming variables, indenting, and placement of {}.

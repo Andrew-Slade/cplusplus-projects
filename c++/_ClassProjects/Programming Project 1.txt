@@ -1,0 +1,35 @@
+150 C++ Programming Project 1
+
+Please be sure to do the following.
+
+    Your program file (the .cpp file) name MUST include your name and the assignment number. Acceptable examples are: JohnS1.cpp or jsmith1.cpp
+    Place the source file, this is the file with the .cpp extension in the assignment drop box in the D2L course shell
+    All assignments must contain the following comments at the top of your source file
+    //your name
+    //which assignment or lab
+
+Programming Project 25 points
+
+Conversions:
+
+The program displays a simple menu, gets the selection from the user and then makes the appropriate calculation. Display the following menu:
+
+Display the entered length in:
+1.  feet
+2.  yards
+3.  centimeters
+4.  meters
+
+Enter your choice: 
+
+After the user enters their choice of conversion, ask the user to enter the length in inches. Inches should be a whole number (integer). After getting the length use a decision structure to determine which calculation to perform to convert inches to the desired measurement(s). If the user enters a value other than 1, 2, 3 or 4 for the menu display a message that the value is not an option. Do not use a loop.
+
+1. To convert inches to feet the formula is: inches / 12. Use modulus to get the inches left over. Display both feet and inches.
+
+2. To convert inches to yards the formula is: inches / 36. Use modulus to get the feet and inches left over. Display yards, feet and inches. Remember that the value for feet should not include those in yards.
+
+3. To convert inches to centimeters the formula is: inches / .39370. Display 1 digit to the right of the decimal point.
+
+4. To convert inches to meters the formula is: inches / 39.370. Display 1 digit to the right of the decimal point.
+
+Hint: inches to feet and inches to yards must be done using integers (whole numbers). Centimeters and meters will display decimals.

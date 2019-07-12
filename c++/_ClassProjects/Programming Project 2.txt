@@ -1,0 +1,58 @@
+Programming Project #2
+150 C++ Programming I
+
+    Your program name MUST include your name and the assignment number. Acceptable examples are : JohnS1 or jsmith1
+    Place the source file in the drop box in the Desire2Learn
+    All assignments must contain the following comments at the top of your source file
+    //your name
+    //which assignment or lab
+
+Programming Project 25 points
+Display Powers Function:
+
+In this function you will output the powers of all the numbers chosen by the user. It will also have you write two loops to validate input.
+
+    Ask the user to input a number for the lowest or starting value. Validate the the number is not less than 1 or greater than 50.
+    Ask the user to input a number for the highest or ending value. The ending value must be greater than the starting value and 100 or less.
+    You must use loops for your validation.
+    Output the chart as described below.
+
+Your output should be the number, the number squared and then the number cubed. Output a header before you start the loop that labels each column. Use fields to align your numbers.
+
+Here is a sample output should the user enter 10 for the starting number and 15 for the ending number.
+
+        Number        Squared          Cubed
+            10            100           1000
+            11            121           1331
+            12            144           1728
+            13            169           2197
+            14            196           2744
+            15            225           3375            
+
+Note: you will have to fix the decimal point if you don't want 100 cubed to display in scientific notation.
+Find Total and Average
+
+This function will use a sentinel loop to total items purchased and then calculate the sales tax on the total.
+
+    The user will input a number.
+    If the number is greater than 0, add the number to the total.
+    Exit the loop when the user inputs -99. Be sure that you don't add -99 to the total.
+    Once out of the loop
+        Calculate the tax due on the total
+        Calculate the average cost of the items entered and
+        and display in fields with the decimal point right aligned:
+            the total of the items entered,
+            the average of the items purchased,
+            the amount of tax due,
+            and the total for the transaction.
+
+Use a constant for the tax rate which is 6.25%. Be sure to identify what each value output is. Display the numbers with 2 decimals to the right of the decimal point.
+main function
+
+Function main() will call the two functions.
+Points
+
+    6 points - validation loops and loop for the chart
+    6 points - sentinel loop and decision structure
+    9 points -calculations, variables, constants
+    4 points - formatting output

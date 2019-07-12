@@ -1,0 +1,11 @@
+USE VIM
+Here is a practice line.
+Delete this line.
+Navagate here.
+Figure out how to change the text here <change me please> to "changed".
+:q quits vi
+:q! quits and does not save
+ZZ saves and quits
+:w saves program
+:s </find text/replacing text/> finds then replaces text.
+replace replaced, with <me>.

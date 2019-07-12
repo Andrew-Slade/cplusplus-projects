@@ -1,0 +1,80 @@
+
+CSCI 241 Assignment 1
+100 points
+Purpose
+
+
+
+
+Write the following functions and add them to assign1.cpp:
+
+    char* copy(char* destination, const char* source, size_t num)
+
+    Copy the first num characters of a string from the address specified by source to that specified by destination. Note that source and destination are both pointers. Return a pointer to the start of the copied string.
+
+    char* reverseCopy(char* destination, const char* source, size_t num)
+
+    Copy the first num characters of a string from the address specified by source to that specified by destination, reversing the order of the characters. Return a pointer to the start of the copied string.
+
+    char* caseChangeCopy(char* destination, const char* source, size_t num)
+
+    Copy the first num characters of a string in which the case of each lowercase character is shifted to uppercase (and uppercase to lowercase), from the address specified by source to that specified by destination. Return a pointer to the start of the copied string.
+
+    You can use the character functions found in the C standard library header file <cctype> to determine whether a character is an uppercase or lowercase letter, and to convert letters from one case to the other.
+
+    char* replaceCopy(char* destination, const char* source, char target, char replace, size_t num)
+
+    Copy the first num characters of a string in which each instance of a "target" character is replaced by the "replace" character, from the address specified by source to that specified by destination. Return a pointer to the start of the copied string.
+
+    void read(char* destination, int n)
+
+    Read a string of characters entered by the user at the keyboard with a length no longer than n characters (including the null character at the end of the C string) into an address specified by destination. The user should be able to type a space or tab as part of the string.
+
+    The getline() method of the istream class in the header file <iostream> can be used to read a string that contains spaces or tabs into an array of char.
+
+Feel free to use the existing C string manipulation functions in the C standard library header file <cstring> when coding the functions required for this assignment.
+Sample Output
+
+A sample run of the program is shown below.
+
+Copy "cattywampus", should see "cattywampus".
+cattywampus
+
+Copy "Supercalifragilisticexpialidocious", should see "Super".
+Super
+
+Replace 'l' in "collywobbles" with 'b', should see "cobbywobbbes".
+cobbywobbbes
+
+Replace 's' in "Supercalifragilistic" with 'd', should see "duper".
+duper
+
+Case change "Lickety Split", should see "lICKETY sPLIT".
+lICKETY sPLIT
+
+Case change "Supercalifragilistic", should see "sUPER".
+sUPER
+
+Reverse "Kerfuffle", should see "elffufreK".
+elffufreK
+
+Reverse "triskaidekaphobia", should see "ohpakediaksirt".
+ohpakediaksirt
+
+Reverse "Lollygag", change case, and replace 'G' with 'Z', should see "ZAZYLLOl".
+ZAZYLLOl
+
+Enter your entire name: Margie Musich
+Margie Musich
+
+Reverse your name and change case.
+HCISUm EIGRAm
+
+Other Points
+
+    Document your functions using the guidelines found in the CSCI 241 Documentation Standards.
+
+    As always, programs that do not compile on turing / hopper automatically receive 0 points.
+
+    Submit your program using the electronic submission guidelines posted on the course web site and described in class.
+

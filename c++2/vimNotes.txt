@@ -1,0 +1,22 @@
+V selects lines
+Cntrl V selects with a box
+y copies
+d cuts
+P pastes
+:q quits
+:q! quits without saving
+ZZ quits and saves
+:wq saves and exits
+ZQ quits and does not save
+dd deletes a line
+D deletes characters
+V visual mode
+V then D deletes highlighted text
+r(character) replaces character on line with new character
+0 goes to beggining of line
+$ goes to end of line
+/<pattern>/[n]  searches for nth pattern
+:<range>s<new phrase>/<pattern>/<string>/[c][e][g][p][r][i][I][count] for each line in <ranger> replace a match of <pattern> with <string> 
+make clean -- removes .o files and any other files (such as executable)
+make -- makes file
+

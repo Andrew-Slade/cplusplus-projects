@@ -1,0 +1,95 @@
+Credit Card Account Listing
+
+Account Number: 1132-2648-4476-0945
+Name: Joanna Madsen
+Credit Limit: $25000.00
+Current Balance: $2805.65
+
+Account Number: 5540-8530-4034-5532
+Name: Trey Donner
+Credit Limit: $5000.00
+Current Balance: $4850.75
+
+Account Number: 5745-7345-3264-8360
+Name: Ronald Jones
+Credit Limit: $15000.00
+Current Balance: $1340.53
+
+Account Number: 5745-7345-3264-8361
+Name: Karin Hunt
+Credit Limit: $15000.00
+Current Balance: $4476.00
+
+Account Number: 6379-0947-2384-1823
+Name: Blake Reynolds
+Credit Limit: $10000.00
+Current Balance: $2703.62
+
+Account Number: 7307-8304-0929-4295
+Name: Jon Mitchell
+Credit Limit: $12000.00
+Current Balance: $207.45
+
+Account Number: 7415-9492-0034-2934
+Name: Susan Garcia
+Credit Limit: $20000.00
+Current Balance: $3738.64
+
+Account Number: 9858-5420-3025-7452
+Name: Keiko Tanaka
+Credit Limit: $25000.00
+Current Balance: $11343.82
+
+                            Transaction Report
+
+Date    Account               Type   Amount     New Balance
+
+06/19   9858-5420-3025-7452   P       5500.00    5843.82
+06/19   1111-1111-1111-1111   C        430.00   *** Invalid account number ***
+06/20   7307-8304-0929-4295   C         36.45     243.90
+06/20   1132-2648-4476-0945   P        130.00    2675.65
+06/20   5540-8530-4034-5532   C        275.23   *** Credit limit exceeded ***
+06/20   7307-8304-0929-4295   P        250.00       6.10 CR
+
+Credit Card Account Listing
+
+Account Number: 1132-2648-4476-0945
+Name: Joanna Madsen
+Credit Limit: $25000.00
+Current Balance: $2675.65
+
+Account Number: 5540-8530-4034-5532
+Name: Trey Donner
+Credit Limit: $5000.00
+Current Balance: $4850.75
+
+Account Number: 5745-7345-3264-8360
+Name: Ronald Jones
+Credit Limit: $15000.00
+Current Balance: $1340.53
+
+Account Number: 5745-7345-3264-8361
+Name: Karin Hunt
+Credit Limit: $15000.00
+Current Balance: $4476.00
+
+Account Number: 6379-0947-2384-1823
+Name: Blake Reynolds
+Credit Limit: $10000.00
+Current Balance: $2703.62
+
+Account Number: 7307-8304-0929-4295
+Name: Jon Mitchell
+Credit Limit: $12000.00
+Current Balance: $6.10 CR
+
+Account Number: 7415-9492-0034-2934
+Name: Susan Garcia
+Credit Limit: $20000.00
+Current Balance: $3738.64
+
+Account Number: 9858-5420-3025-7452
+Name: Keiko Tanaka
+Credit Limit: $25000.00
+Current Balance: $5843.82
+

@@ -1,0 +1,356 @@
+
+Assignment 2 - 100 points
+Part 1
+Assignment Overview
+
+In Part 1 of this assignment, you will write a main program and several classes to create and print a small database of credit card accounts. The assignment has been split into two parts to encourage you to code your program in an incremental fashion, a technique that will be increasingly important as the semester goes on.
+Purpose
+
+This assignment reviews object-oriented programming concepts such as classes, methods, constructors, accessor methods, and access modifiers. It makes use of an array of objects as a class data member, and introduces the concept of object serialization or "binary I/O".
+Set Up
+
+    As in Assignment 1, you should create a subdirectory to hold your files for Assignment 2.
+
+    In that directory, make a symbolic link to the data file for this part of the assignment:
+
+       ln -s /home/turing/t90kjm1/CS241/Data/Spring2017/Assign2/accounts
+
+    In this assignment, you will be creating several source code and header files, as described below. You can create each of these files separately using the nano editor, just as you did on Assignment 1.
+
+    To compile and link the program you've created, type:
+
+       g++ -Wall -o assign2 assign2.cpp CreditAccount.cpp
+
+    Once you've added the AccountDB class, you should type:
+
+       g++ -Wall -std=c++11 -o assign2 assign2.cpp CreditAccount.cpp AccountDB.cpp
+
+    (Yes, these commands are rather tedious to type repeatedly. Part 2 of this assignment introduces a new technique for compiling and linking your program files called a makefile. Makefiles require a bit more work up front, but save a lot of typing at the command line once the makefile has been created.)
+
+    To run the executable file created by the previous command, type:
+
+       ./assign2
+
+Program
+
+For this assignment, you will need to write three source code files as well as two header files. Each of these files is relatively short, but many inexperienced programmers are overwhelmed by the idea of writing a program as multiple files. "Where do I start?!!" is a common refrain. This assignment sheet attempts to walk you through the steps of writing a multi-file program.
+
+The steps outlined below should not be thought of as a purely linear process, but rather an iterative one -
+ For example, work a little on Step 1, then a little on Step 2, then test what you've written (Step 3).
+Step 1: Write the CreditAccount class declaration
+
+The CreditAccount class represents information about a credit card account. 
+
+The code for the CreditAccount class will be placed in two separate files, which is the norm for non-template C++ classes.
+
+The header file for a class contains the class declaration, including declarations of any data members and prototypes for the methods of the class. 
+The name of the header file should be of the form ClassName.h (for example, CreditAccount.h for the header file of the CreditAccount class).
+
+A skeleton for the CreditAccount.h file is given below. As shown, a header file should begin and end with header guards to prevent it from accidentally
+ being #included more than once in the same source code file (which would produce duplicate symbol definition errors). 
+The symbol name used in the header guards can be any valid C++ name that is not already in use in your program or the C/C++ libraries. 
+Using a name of the format CLASSNAME_H (like CREDIT_ACCOUNT_H in the code below) is recommended to avoid naming conflicts.
+
+   #ifndef CREDIT_ACCOUNT_H
+   #define CREDIT_ACCOUNT_H
+
+   //*****************************************************************
+   // FILE:      CreditAccount.h
+   // AUTHOR:    your name
+   // LOGON ID:  your z-ID
+   // DUE DATE:  due date of assignment
+   // 
+   // PURPOSE:   Contains the declaration for the CreditAccount class.
+   //*****************************************************************
+
+   class CreditAccount
+      {
+      // Data members and method prototypes for the CreditAccount class go here
+               .
+               .
+               .
+      };
+
+   #endif
+
+Data Members
+
+The CreditAccount class should have the following private data members:
+
+    an account number (a char array with room for 19 characters PLUS the null character, i.e. 20 elements total)
+    a customer name (a char array with room for 20 characters PLUS the null character)
+    a credit limit (a double variable)
+    a current account balance (a double variable)
+
+Note: Make that sure you code your data members in
+ THE EXACT ORDER LISTED ABOVE and with THE EXACT SAME DATA TYPES. 
+If you use float instead of double or only make the name array 20 characters
+ long instead of 21, your final program will not work correctly!
+
+C++11 Initialization Option for Data Members
+
+C++11 adds the ability to initialize the non-static data members of a 
+class at the time you declare them using a "brace-or-equal" syntax. 
+This is very convenient, and can eliminate most or all of the code 
+from your default constructor. Here are a few examples of the kind of
+ initializations you can do in a class declaration:
+
+class Foo
+   {
+   // Data members
+   private:
+
+      int x = 0;                                  // Initialize x to 0
+      double y = 9.9;                             // Initialize y to 9.9
+      char text[21]{};                            // Initialize text to an
+                                                  // empty string
+      char name[11]{'J', 'o', 'h', 'n', '\0'};    // Initialize name to "John"
+      string s{"Hello"};                          // Initialize s to "Hello"
+
+      etc.
+   };
+
+Feel free to use this option if you want to.
+
+Method Prototypes
+
+The CreditAccount class declaration should (eventually) contain public prototypes for all of the methods in the 
+CreditAccount.cpp source code file described in Step 2 below.
+Step 2: Write the CreditAccount class implementation
+
+The source code file for a class contains the method definitions for the class. 
+The name of the source code file should be of the form ClassName.cpp or ClassName.cc
+ (for example, CreditAccount.cpp for the source code file of the
+ CreditAccount class).
+
+The CreditAccount class implementation should (eventually) 
+contain definitions for all of the methods described below.
+ Make sure to
+ #include "CreditAccount.h" at the top of this file.
+
+    CreditAccount default constructor -
+ This "default" constructor for the CreditAccount class takes no parameters. 
+Like all C++ constructors, it does not have a return data type.
+
+    This method should set the account number and customer name data 
+members to "null strings". This
+ can be done by copying a null string literal
+ ("") into the character array using strcpy()
+ or by setting the first element of the array to 
+a null character ('\0').
+ The credit limit and account balance data members should be set to 0.
+
+    (If you're working in C++11 and you initialized the data members at declaration as described above under C++11 Initialization Option for
+ Data Members, this method's body can be empty. You still need to code the method though, even though it won't actually do anything.)
+
+    Alternate CreditAccount constructor - Write another constructor for the CreditAccount class that takes four parameters: 
+1) a character array that contains a new account number,
+ 2) a character array that contains a new customer name, 
+3) a double variable that contains a new credit limit, and 
+4) a double variable that contains a new balance. 
+DO NOT GIVE THESE PARAMETERS THE SAME NAMES AS YOUR DATA MEMBERS.. Like all C++ constructors, this constructor does not have a return data type.
+
+    Use strcpy() to copy the new account number parameter into the account number data member and the new customer
+ name parameter into the customer name data member. The new credit limit and new account balance parameters can be assigned to the corresponding data members.
+
+    getAccountNumber() - This accessor method takes no parameters. It should return the account number data member.
+ In C++, the usual return data type specified when you are returning the name of a character array is char* or "pointer to a character" (since returning an array's name will convert the name into a pointer to the first element of the array, which in this case is data type char.
+
+    getName() - This accessor method takes no parameters. It should return the customer name data member.
+
+    getLimit() - This accessor method takes no parameters. It will have a return data type of double. 
+It should return the credit limit data member.
+
+    getBalance() - This accessor method takes no parameters. It will have a return data type of double.
+ It should return the account balance data member.
+
+    processPayment() - This method takes one parameter, a double payment amount. 
+It returns nothing. The payment amount should be subtracted from the current account balance data member.
+ (Note that it is possible to have a negative balance on an account as a result of overpayment.)
+
+    processCharge() - This method takes one parameter, a double charge amount.
+ It returns a Boolean value. If the charge amount plus the current account balance is greater than the credit limit, 
+the method should return false without altering the balance (because this charge has been declined). 
+Otherwise, the charge amount should be added to the account balance and the method should return true.
+
+    print() - This method takes no parameters and returns nothing. 
+The method should print the values of the data members for the account in a format similar to the following:
+
+    Account Number: 1938-2348-3843-9683
+    Name: John Smith
+    Credit Limit: $5000.00
+    Current Balance: $127.65 CR
+
+    If the balance is negative, it should be printed as a positive number but followed by the letters "CR" (for credit).
+ For example, the sample output shown above is for an account with a balance of -127.65.
+
+Step 3: Test and debug the CreditAccount class
+
+As you write your declaration and implementation of the CreditAccount class, 
+you should begin testing the code you've written. Create a basic main program called assign2.cpp that tests your class.
+ This is not the final version of assign2.cpp that you will eventually submit. In fact, you'll end up deleting most (or all) of it by the
+ time you're done with the assignment. An example test program is given below.
+
+You do not have to have written all of the methods for the CreditAccount class before you begin testing it.
+ Simply comment out the parts of your test program that call methods you haven't written yet. Write one method definition, 
+add its prototype to the class declaration, uncomment the corresponding test code in your test program, and then compile and link your program. 
+If you get syntax errors, fix them before you attempt to write additional code. A larger amount of code that does not compile is not useful - 
+it just makes debugging harder! The goal here is to constantly maintain a working program.
+
+#include <iostream>
+#include "CreditAccount.h"
+
+using std::cout;
+using std::endl;
+
+int main()
+   {
+   char code1[20] = "1111-1111-1111-1111";
+   char name1[21] = "Jermaine Arnold";
+   char code2[20] = "2222-2222-2222-2222";
+   char name2[21] = "Vanessa Long";
+
+   // Test default constructor
+   CreditAccount account1;
+
+   // Test alternate constructor
+   CreditAccount account2(code1, name1, 1000.00, 520.25);
+
+   // Account with negative balance
+   CreditAccount account3(code2, name2, 1500.00, -62.95);
+
+   // Test print() method and whether constructors
+   // properly initialized objects
+   cout << "Printing account1\n\n";
+   account1.print();
+   cout << endl;
+
+   cout << "Printing account2\n\n";
+   account2.print();
+   cout << endl;
+
+   cout << "Printing account3\n\n";
+   account3.print();
+   cout << endl;
+
+   // Test accessor methods
+   cout << "Testing accessor methods for account2\n\n";
+
+   cout << account2.getAccountNumber() << endl;
+   cout << account2.getName() << endl;
+   cout << account2.getLimit() << endl;
+   cout << account2.getBalance() << endl << endl;
+
+   // Test the processCharge() method with a successful charge
+   bool chargeAccepted = account2.processCharge(400.00);
+   if (chargeAccepted)
+      cout << "Charge of $400.00 accepted, new balance on account2 is $" << account2.getBalance() << endl;
+   else
+      cout << "Charge of $400.00 on account2 declined\n";
+      
+   cout << endl;
+   
+   // Test the processCharge() method with a failed charge
+   chargeAccepted = account2.processCharge(620.00);
+   if (chargeAccepted)
+      cout << "Charge of $620.00 accepted, new balance on account2 is $" << account2.getBalance() << endl;
+   else
+      cout << "Charge of $620.00 on account2 declined\n";
+      
+   cout << endl;
+
+   // Test the processPayment() method
+   cout << "Payment of $500.00 on account2\n\n";
+   account2.processPayment(500.00);   
+   account2.print();
+
+   cout << endl;
+      
+   // Test the processPayment() method by overpaying - should now have a 
+   // credit on the account
+   cout << "Payment of $750.00 on account2\n\n";
+   account2.processPayment(750.00);
+   account2.print();
+
+   return 0;
+   }
+
+Once your CreditAccount class has been thoroughly tested and debugged, it's time to write the second class for this assignment.
+Step 4: Write the AccountDB class declaration
+
+The AccountDB class represents a database of CreditAccount objects. Like the CreditAccount class, 
+the code for this class will be placed in two separate files.
+
+Place the class declaration in a header file called AccountDB.h. Like the file CreditAccount.h you wrote in Step 1, 
+this file should begin and end with header guards to prevent it from accidentally being #included more than once in the same source code file.
+
+After the header guard at the top of the file but before the class definition, make sure to #include "CreditAccount.h".
+
+Data Members
+
+The AccountDB class should have the following two private data members:
+
+    An array of 20 CreditAccount objects
+    An integer that specifies the number of CreditAccount objects actually stored in the array
+
+Note: Once again, make sure you code your data members in THE EXACT ORDER LISTED ABOVE and with THE EXACT SAME DATA TYPES.
+
+Method Prototypes
+
+The AccountDB class declaration should (eventually) contain public prototypes for all of the methods in the
+ AccountDB.cpp source code file described in Step 5 below.
+Step 5: Write the AccountDB class implementation
+
+The AccountDB class implementation should (eventually) contain definitions for all of the methods described below.
+ Make sure to #include "AccountDB.h" at the top of this file.
+
+    AccountDB default constructor - This "default" constructor for the AccountDB class takes no parameters. 
+Like all C++ constructors, it does not have a return data type.
+
+    This constructor is called to create an empty database, so this method should set the number of accounts data member to 0.
+
+    (As with the CreditAccount class, if you initialize the number of accounts data member to 0 when you declare it, 
+this method's body can be empty. You still need to code the method with an empty body.)
+
+    Alternate AccountDB constructor - Write a second constructor for the AccountDB class that takes one parameter: 
+a C++ string that contains the name of an existing database file. Like all C++ constructors, this constructor does not have a return data type.
+
+    This constructor should do the following:
+
+        Declare an input file stream variable (the code below assumes it is named inFile).
+
+        Open the file stream for binary input. Check to make sure the file was opened successfully as usual.
+
+        Read the database file into your AccountDB object. You can do this with a single statement:
+
+           inFile.read((char*) this, sizeof(AccountDB));
+
+        Close the file stream.
+
+    print() - This method takes no parameters and returns nothing.
+
+    This method should first print a descriptive header line (e.g., "Credit Card Account Listing").
+ It should then loop through the array of CreditAccount objects and print each 
+of the elements that contains account data, with a blank line between each account.
+ Here we see some of the power of object-oriented programming: since each element of the array
+ is an object, we can call a method for that object. We've already written a print() method for the CreditAccount class, 
+so printing an element of the account array is as easy as calling print() for the array element. The syntax for calling a method using an array 
+element that is an object is pretty straightforward:
+
+       arrayName[subscript].methodName(arguments);
+
+Step 6: Write the main program
+
+Since most of the logic of the program is embedded in the two classes you wrote, the main() routine logic is extremely simple.
+
+    Create an AccountDB object using the alternate constructor you wrote. Pass the filename string literal "accounts" as an argument to the constructor.
+    Call the print() method for the AccountDB object.
+
+Other Points
+
+    You do not need to submit this part of the assignment, only Part 2.
+
+    Make sure to document your program according to the standards listed in the Course Notes book. 
+In particular, each class method or function should have a documentation box describing its purpose, the input parameters (if any), 
+and the return value (if any). There should also be a documentation box for the program as a whole.
+

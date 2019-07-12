@@ -1,0 +1,29 @@
+pseucode for tryParse() function
+
+using char or char array functions
+strlen() - takes a character array and returns the number of
+			characters in the array. "Hi" returns 2
+atoi() - alpha to integer, taks a character array and converts it 
+		to an integer   "34" becomes 34
+isdigit() - takes one character, tests if it is a digit 0 to 9
+			returns true if it is and false if it isn't
+
+bool tryParse(char strNum[], int & num)
+int index 
+bool allDigits = true
+int length = number of characters using function strlen()
+
+   loop from 0 to < length (use a for loop)
+     check if digit is true
+	    continue
+	 else (not a digit)
+	   allDigits = false
+	   break;
+
+	convert or not to convert?
+	if alldigits is true
+	   use atoi and convert strNum to integer assign to parameter num
+	else  //or do nothing
+	   set num to 0
+
+	return alldigits

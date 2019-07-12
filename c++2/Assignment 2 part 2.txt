@@ -1,0 +1,147 @@
+
+Assignment 2 - 100 points
+Part 2
+Assignment Overview
+
+In Part 2 of this assignment, you will add some functionality to the AccountDB class and add some logic to your main() routine to test that functionality.
+Purpose
+
+This part of the assignment introduces the insertion sort and binary search algorithms. It also introduces the use of makefiles for compiling and linking your programs.
+Set Up
+
+    In your Assignment 2 directory, make a symbolic link to the data file for this part of the assignment:
+
+       ln -s /home/turing/t90kjm1/CS241/Data/Spring2017/Assign2/transactions.txt
+
+    In this assignment, you will be creating several source code and header files, as described below. You can create each of these files separately using the nano editor, just as you did on Assignment 1.
+
+    Once you've written a makefile for your program, you can compile and link it by simply typing:
+
+       make
+
+    Running the executable file is unchanged from Part 1.
+
+    To remove the executable and object code files for your program (conserving disk space), you can type:
+
+       make clean
+
+Program
+
+For this part of the assignment, you'll need to write one new file and then modify two of the files you wrote for Part 1.
+Step 1: Write a makefile
+
+The file named makefile tells the make utility how to build the final executable file from your collection of C++ source code and header files. The makefile for this assignment is given in its entirety below. Makefiles for future assignments will follow this basic pattern.
+
+IMPORTANT NOTE: The commands that appear in the makefile below MUST be indented as shown. Furthermore, the indentation MUST be done using a tab character, not spaces. If you don't indent your makefile commands, or indent using spaces, your makefile WILL NOT WORK.
+
+#
+# PROGRAM:    assign2
+# PROGRAMMER: your name
+# LOGON ID:   your z-id
+# DATE DUE:   due date of program
+#
+
+# Compiler variables
+CCFLAGS = -Wall -std=c++11
+
+# Rule to link object code files to create executable file
+assign2: assign2.o CreditAccount.o AccountDB.o
+	g++ $(CCFLAGS) -o assign2 assign2.o CreditAccount.o AccountDB.o
+
+# Rules to compile source code files to object code
+assign2.o: assign2.cpp AccountDB.h
+	g++ $(CCFLAGS) -c assign2.cpp
+
+CreditAccount.o: CreditAccount.cpp CreditAccount.h
+	g++ $(CCFLAGS) -c CreditAccount.cpp
+
+AccountDB.o: AccountDB.cpp AccountDB.h
+	g++ $(CCFLAGS) -c AccountDB.cpp
+
+# The AccountDB class depends on the CreditAccount class
+AccountDB.h: CreditAccount.h
+
+# Pseudo-target to remove object code and executable files
+clean:
+	-rm *.o assign2
+
+Once you've written the file makefile, try using the make utility to compile and link your program.
+Step 2: Add the following methods to the AccountDB class
+
+    sortAccounts() - This method takes no parameters and returns nothing.
+
+    This method should sort the array of CreditAccount objects in ascending order by account number using the insertion sort algorithm.
+
+    The sort code linked to above sorts an array of integers called numbers of size size. You will need to make a substantial number of changes to that code to make it work in this program:
+
+        This will be a method, not a function. Change the parameters for the method to those described above.
+
+        In the method body, change the data type of bucket to CreditAccount. This temporary storage will be used to swap elements of the array of CreditAccount objects.
+
+        In the method body, change any occurrence of numbers to the name of your array of CreditAccount objects and size to numAccounts (or whatever you called the data member that tracks the number of valid CreditAccount objects stored in the array).
+
+        The comparison of accountArray[j-1] and bucket will need to use the C string library function strcmp() to perform the comparison. Also, you'll need to use the getAccountNumber() method to access the accountNumber data member within each CreditAccount object. The final version of the inner for loop should look something like this:
+
+           for (j = i; (j > 0) && (strcmp(accountArray[j-1].getAccountNumber(), bucket.getAccountNumber()) > 0); j--)
+              ...
+
+        It is legal to assign one CreditAccount object to another; you don't need to write code to copy individual data members.
+
+    Add a call to the sortAccounts() method to the end of the alternate constructor you wrote for the AccountDB class. This will sort the array of CreditAccount objects that were read in from the input file.
+
+    searchForAccount() - This method should take one parameter: a character array containing the account number code of the CreditAccount to search for (searchNumber). The method should return an integer.
+
+    The logic for this method is a variation of the binary search of a sorted list strategy.
+
+       int low = 0;
+       int high = number of valid CreditAccount objects in the array - 1;
+       int mid;
+
+       while (low <= high)
+          {
+          mid = (low + high) / 2;
+
+          if (searchNumber is equal to accountNumber data member of accountArray[mid])
+             return mid;
+
+          if (searchNumber is less than accountNumber data member of accountArray[mid])
+             high = mid - 1;
+          else
+             low = mid + 1;
+          }
+
+       return -1;
+
+    As usual, you'll need to use strcmp() to perform the comparison of account numbers.
+
+    processTransactions() - This method should take one parameter: a C++ string containing the name of a file of credit card transaction data. The method should return nothing.
+
+    The method should open the specified transaction file for input (not binary input - this file is a text file). Make sure to test that the file was opened successfully; if it wasn't, print an error message and exit the program.
+
+    Before reading any transactions, the function should print a report header and column headers. The function should then read transaction data from the file until end of file is reached. A typical transaction is shown below. The first field on the transaction record is the date of the transaction, followed by an account number, then the transaction type ('C' for charge or 'P' for payment), and finally a transaction amount.
+
+    06/19 1111-1111-1111-1111 C 430.00
+
+    Once all of the data for a given transaction has been read, call the searchForAccount() method to search the accounts array for the account number given in the transaction. If the account number is present in the array, then the transaction may be processed. For a payment, simply call the processPayment() method for the object that contains a matching account number, passing it the transaction amount. For a charge, call the processCharge() method for the object that contains a matching account number, passing it the transaction amount.
+
+    For each transaction record processed, print a line in a transaction report with the data from the record and the updated balance for that account. If the balance is negative, it should be printed as a positive number but followed by the letters "CR". If the transaction account number was not found in the account array or if a charge exceeded the account's credit limit (i.e., if the processCharge() method returned false), print an appropriate error message instead of the account balance.
+
+    After all transactions have been processed, close the transaction file.
+
+Step 3: Add two method calls to the main program
+
+The main() routine logic will now look like this:
+
+    Create an AccountDB object using the alternate constructor you wrote. Pass the filename string "accounts" as an argument to the constructor.
+    Call the print() method for the AccountDB object.
+    Call the processTransactions() method for the AccountDB object. Pass the filename string "transactions.txt" as an argument to the method.
+    Call the print() method for the AccountDB object.
+
+Other Points
+
+    As always, programs that do not compile on turing/hopper automatically receive 0 points.
+
+    Make sure to document your program according to the standards listed in the Course Notes book. In particular, each function or method should have a documentation box describing the purpose of the function, the input parameters, and the return value (if any). There should also be a documentation box for the program as a whole.
+
+    Submit the final version of your program using the electronic submission guidelines posted on the course web site and described in class.
+
